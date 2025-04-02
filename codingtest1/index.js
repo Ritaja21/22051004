@@ -6,7 +6,7 @@ const PORT = 9876;
 const WINDOW_SIZE = 10;
 const numberStore = [];
 
-const API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiZXhwIjoxNzQzNjAyODUyLCJpYXQiOjE3NDM2MDI1NTIsImlzcyI6IkFmZm9yZG1lZCIsImp0aSI6IjczMWU0OGNkLTViODMtNGM4MS1hYWRhLWViZmNlNjZmZWM1NyIsInN1YiI6InRvbm5pdGFyYWZkZXIyMDA0QGdtYWlsLmNvbSJ9LCJlbWFpbCI6InRvbm5pdGFyYWZkZXIyMDA0QGdtYWlsLmNvbSIsIm5hbWUiOiJyaXRhamEgdGFyYWZkZXIiLCJyb2xsTm8iOiIyMjA1MTAwNCIsImFjY2Vzc0NvZGUiOiJud3B3cloiLCJjbGllbnRJRCI6IjczMWU0OGNkLTViODMtNGM4MS1hYWRhLWViZmNlNjZmZWM1NyIsImNsaWVudFNlY3JldCI6ImpYWGZ0eFFhd1BkdXFTTloifQ.WfaBOtq-UZC7-FIEXNteam0zvKAQ2CdszQpVrRhyyXA"; // Replace with actual API key
+const API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiZXhwIjoxNzQzNjAyODUyLCJpYXQiOjE3NDM2MDI1NTIsImlzcyI6IkFmZm9yZG1lZCIsImp0aSI6IjczMWU0OGNkLTViODMtNGM4MS1hYWRhLWViZmNlNjZmZWM1NyIsInN1YiI6InRvbm5pdGFyYWZkZXIyMDA0QGdtYWlsLmNvbSJ9LCJlbWFpbCI6InRvbm5pdGFyYWZkZXIyMDA0QGdtYWlsLmNvbSIsIm5hbWUiOiJyaXRhamEgdGFyYWZkZXIiLCJyb2xsTm8iOiIyMjA1MTAwNCIsImFjY2Vzc0NvZGUiOiJud3B3cloiLCJjbGllbnRJRCI6IjczMWU0OGNkLTViODMtNGM4MS1hYWRhLWViZmNlNjZmZWM1NyIsImNsaWVudFNlY3JldCI6ImpYWGZ0eFFhd1BkdXFTTloifQ.WfaBOtq-UZC7-FIEXNteam0zvKAQ2CdszQpVrRhyyXA"; 
 
 const API_ENDPOINTS = {
     p: "http://20.244.56.144/evaluation-service/primes",
@@ -15,6 +15,7 @@ const API_ENDPOINTS = {
     r: "http://20.244.56.144/evaluation-service/rand"
 };
 
+//get api
 app.get("/numbers/:numberid", async (req, res) => {
     const { numberid } = req.params;
     if (!API_ENDPOINTS[numberid]) {
@@ -62,7 +63,7 @@ app.get("/numbers/:numberid", async (req, res) => {
         return res.status(500).json({ error: "Failed to fetch numbers from API" });
     }
 });
-
+//to check if server is running
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
